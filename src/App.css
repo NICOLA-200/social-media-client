@@ -1,0 +1,155 @@
+:root {
+  --yellow: #2c4ef5;
+  --orange: #1f6cfc;
+  --black: #211d2b;
+  --gray: rgba(24, 21, 37, 0.65);
+  --profileShadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
+  --hrColor: #cfcdcd;
+  --cardColor: rgba(255, 255, 255, 0.64);
+  --buttonBg: linear-gradient(98.63deg, #2530f9 0%, #8035f9 100%);
+  --inputColor: rgba(40, 52, 62, 0.07);
+  --photo: #4CB256;
+  --video: #9eb74a;
+  --location: #5787ef;
+--shedule: #5c4ae1;
+}
+
+.App {
+  overflow: scroll;
+  overflow-y: auto;
+  color: var(--black);
+  background: #f3f3f3;
+  padding: 1rem 1rem;
+}
+
+/* blur */
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #a6ddf0;
+  filter: blur(72px);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--buttonBg);
+  transition: all 100ms ease-out;
+}
+
+.button:hover {
+  color: var(--orange);
+  border: 2px solid var(--orange);
+  cursor: pointer;
+  background: transparent;
+}
+
+.button:disabled{
+  background: silver;
+  pointer-events: none;
+}
+
+
+::-webkit-scrollbar {
+  width: .7rem;
+
+}
+::-webkit-scrollbar-thumb {
+  background: #2880ec72; /* Color of the scrollbar thumb */
+  border-radius: .5rem; /* Rounded corners for the thumb */
+}
+
+
+
+/* Form Styling */
+.infoForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.infoInput{
+  border: none;
+  outline: none;
+  background-color: var(--inputColor);
+  border-radius: 8px;
+  padding: 1rem;
+  flex:1;
+
+
+}
+
+.infoForm>div{
+  display: flex;
+  gap: 1rem;
+  height: 2rem;
+  width: 90%;
+}
+@media screen and  (max-width: 480px) {
+  .names{
+    gap: 1rem;
+    flex-direction: column;
+     margin: 0 1rem;
+     width: 100%;
+
+  }
+  .infoForm{
+
+    width: 300px;
+  
+  }
+
+  .infoForm>div{
+    display: flex;
+    gap: .5rem;
+    height: 2rem;
+   
+  }
+  
+  @media screen and  (max-width: 320px) {
+    .names{
+      gap: 1rem;
+      flex-direction: column;
+       margin: 0 1rem;
+       width: 100%;
+  
+    }
+    .infoForm{
+  
+      width: 200px;
+    
+    }
+  }
+
+  .infoInput{
+   
+  
+    padding: .7rem;
+    
+  
+  
+  }
+
+
+  input[name='username'] {
+    margin:0 7rem;
+
+
+  }
+ }
+
+
+.infoButton{
+  width: 6rem;
+  height: 2rem;
+  align-self: center;
+}
