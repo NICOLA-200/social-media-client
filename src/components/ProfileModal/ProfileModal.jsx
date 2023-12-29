@@ -31,11 +31,12 @@ const ProfileModal = ({ modalOpened, setModalOpened, data }) => {
 
   // form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     let UserData = formData;
     if (profileImage) {
+      let newNameProfile = profileImage.name.replace(/ /gi , "");
       const data = new FormData();
-      const fileName = Date.now() + profileImage.name;
+      const fileName = Date.now() + newNameProfile;
       data.append("name", fileName);
       data.append("file", profileImage);
       UserData.profilePicture = fileName;
@@ -46,8 +47,9 @@ const ProfileModal = ({ modalOpened, setModalOpened, data }) => {
       }
     }
     if (coverImage) {
+      let newNameCover = coverImage.name.replace(/ /gi , "");
       const data = new FormData();
-      const fileName = Date.now() + coverImage.name;
+      const fileName = Date.now() + newNameCover;
       data.append("name", fileName);
       data.append("file", coverImage);
       UserData.coverPicture = fileName;
