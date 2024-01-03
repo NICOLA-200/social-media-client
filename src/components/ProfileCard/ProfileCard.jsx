@@ -16,7 +16,7 @@ const ProfileCard = ({location}) => {
             user.coverPicture
               ? serverPublic + user.coverPicture
               : serverPublic + "defaultCover.jpg"
-          } alt="CoverImage" />
+          } alt="CoverImage" style={{ObjectFit: 'fill',minWidth: '100%'}} />
         <img
           src={
             user.profilePicture
