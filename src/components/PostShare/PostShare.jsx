@@ -13,6 +13,7 @@ const PostShare = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const loading = useSelector((state) => state.postReducer.uploading);
   const [image, setImage] = useState(null);
+   const [loads, setLoads] = useState(false);
   const desc = useRef();
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -31,7 +32,7 @@ const PostShare = () => {
   // handle post upload
   const handleUpload = async (e) => {
     e.preventDefault();
-
+    setLoads(true)
     //post data
     const newPost = {
       userId: user._id,
@@ -40,20 +41,22 @@ const PostShare = () => {
 
     // if there is an image with post
     if (image) {
+      let newNamePost = image.name.replace(/ /gi, "");
       const data = new FormData();
-      const fileName = Date.now() + image.name;
+      const fileName = Date.now() + newNamePost;
       data.append("name", fileName);
       data.append("file", image);
       newPost.image = fileName;
       console.log(newPost);
       try {
-        dispatch(uploadImage(data));
+         await dispatch(uploadImage(data));
       } catch (err) {
         console.log(err);
       }
     }
     dispatch(uploadPost(newPost));
     resetShare();
+    setLoads(false)
   };
 
   // Reset Post Share
@@ -112,7 +115,7 @@ const PostShare = () => {
             onClick={handleUpload}
             disabled={show}
           >  {console.log(show + image)}
-            {loading ? "uploading" : "Share"}
+            {loading || loads ? "uploading" : "Share"}
           </button>
 
           <div style={{ display: "none" }}>
