@@ -21,6 +21,8 @@
   height: auto;
   min-height: 80vh;
   overflow: scroll;
+   min-width: 50px;
+  margin-right: 10px;
 }
 
 .Chat-list {
