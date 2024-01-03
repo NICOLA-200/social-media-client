@@ -30,8 +30,8 @@ const ProfileModal = ({ modalOpened, setModalOpened, data }) => {
   };
 
   // form submission
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     let UserData = formData;
     if (profileImage) {
       let newNameProfile = profileImage.name.replace(/ /gi , "");
@@ -54,7 +54,7 @@ const ProfileModal = ({ modalOpened, setModalOpened, data }) => {
       data.append("file", coverImage);
       UserData.coverPicture = fileName;
       try {
-        dispatch(uploadImage(data));
+      await  dispatch(uploadImage(data));
       } catch (err) {
         console.log(err);
       }
