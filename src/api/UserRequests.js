@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://backend-art-media.onrender.com" });
+const API = axios.create({ baseURL: "https://social-media-backend-chi.vercel.app" });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
